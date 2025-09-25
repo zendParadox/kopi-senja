@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import Script from "next/script";
 import FlyonuiScript from "../components/FlyonuiScript";
 
 export default function RootLayout({
@@ -9,8 +9,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen flex pt-15 justify-center bg-base-200">
-        <div className="p-6">{children}</div>
+      <body className="">
+        <div className="">{children}</div>
+        <Script
+          src={"../../node_modules/flyonui/flyonui.js"}
+          strategy="lazyOnload" // Waits until the browser is idle to run
+        />
       </body>
       <FlyonuiScript />
     </html>
